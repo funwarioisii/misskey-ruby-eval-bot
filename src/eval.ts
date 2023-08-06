@@ -12,6 +12,9 @@ export function evalRuby(rubyCode: string) {
 
   return execSync(
     `wasmer katei/ruby -- -e "puts(${codeWrappedErrorHandling})"`,
-    { encoding: "utf-8" },
+    {
+      encoding: "utf-8",
+      timeout: 10000, // 10秒
+    },
   );
 }
